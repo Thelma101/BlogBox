@@ -10,8 +10,6 @@ mongoose.connect('mongodb://localhost/BlogBox', { useNewUrlParser: true, useUnif
  .then(() => console.log('MongoDB Connected...Hurray!'))
  .catch(err => console.log(err));
 
- // Middleware to parse JSON request bodies
-//  app.user(express.user())
 
 app.listen(port, () => {
     console.log(`Yaay! Server running on port ${port}`);

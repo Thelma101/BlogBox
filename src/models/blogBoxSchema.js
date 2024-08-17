@@ -11,4 +11,3 @@ const postSchema = new mongoose.Schema({
 
 const BlogBox = mongoose.model('BlogBox', postSchema);
 
-module.exports = BlogBox;

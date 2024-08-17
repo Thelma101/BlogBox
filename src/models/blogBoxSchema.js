@@ -9,5 +9,3 @@ const postSchema = new mongoose.Schema({
   date: { type: Date, default: Date.now },
 });
 
-const BlogBox = mongoose.model('BlogBox', postSchema);
-

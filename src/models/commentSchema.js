@@ -13,7 +13,7 @@ const commentSchema = new commentSchema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     },
-    blog: {
+    blog_id: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Blog'
     }

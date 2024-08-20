@@ -12,6 +12,9 @@ const blogSchema = new blogSchema({
     author: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
+    },
+    tag: {
+        type: String,
     }
 });
 

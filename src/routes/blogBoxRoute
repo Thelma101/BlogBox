@@ -8,3 +8,9 @@ const blogPost = require('../controllers/blogBloxController');
 //     app.put('/blogBox/:id', blogPost.updateBlogPost);
 //     app.delete('/blogBox/:id', blogPost.deleteBlogPost);
 // }
+
+app.post('/', blogPost);
+app.get('/', blogPost);
+app.get('/:id', blogPost);
+app.put('/:id', blogPost);
+app.delete('/:id', blogPost);

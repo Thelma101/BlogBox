@@ -1,1 +1,10 @@
-const blogRoute = require('');
+const blogPost = require('../controllers/blogBloxController');
+
+
+// module.exports = (app) => {
+//     app.post('/blogBox', blogPost.createBlogPost);
+//     app.get('/blogBox', blogPost.getAllBlogPosts);
+//     app.get('/blogBox/:id', blogPost.getBlogPostById);
+//     app.put('/blogBox/:id', blogPost.updateBlogPost);
+//     app.delete('/blogBox/:id', blogPost.deleteBlogPost);
+// }

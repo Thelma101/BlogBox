@@ -17,7 +17,7 @@ app.post('/', async (req,res) => {
         const blog = await newBlog.save();
         res.status(201).json({ message: 'New post added successfully', blog });
     }
-    catch {
+    catch (error) {
         res.status(500).json({ message: error.message, error});
     }
 })

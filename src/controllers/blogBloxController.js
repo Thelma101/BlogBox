@@ -1,5 +1,8 @@
 
-app.post('/', (req,res) {
+app.post('/', async (req,res) {
+    const { title, content, author, tag } = req.body;
+
+    
     try {
         // const newBlog = new Blog({
         //     title: req.body.title,
@@ -15,7 +18,7 @@ app.post('/', (req,res) {
         // res.json({ message: 'New blog added successfully' });
 
         const newBlog = new Blog({
-            
+
         })
     }
 })

@@ -1,30 +1,24 @@
+const express = require('express');
+const app = express();
 
-app.post('/', async (req,res) {
+app.use(express.json());
+app.post('/', async (req,res) => {
     const { title, content, author, tag } = req.body;
     if ( !title || !content || !author || !tag ) {
         return res.status(404).json({ message: 'Please fill all the fields' })
     }
 
     try {
-        // const newBlog = new Blog({
-        //     title: req.body.title,
-        //     content: req.body.content,
-        //     author: req.body.author,
-        //     tag: req.body.tag
-        // });
-
-        // newBlog.save()
-        //    .then(blog => res.json(blog))
-        //    .catch(err => res.status(400).json(err));
-
-        // res.json({ message: 'New blog added successfully' });
-
         const newBlog = new Blog({
             title,
             content,
             author,
             tag
         })
-        
+        const blog = await newBlog.save();
+        res.status(201).json({ message: 'New post added successfully', blog });
+    }
+    catch {
+        res.status(500).json({ message: error.message, error});
     }
 })

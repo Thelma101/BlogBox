@@ -12,7 +12,7 @@ const app = require('express').Router();
 // }
 
 app.post('/api/v1/blog', blogPost);
-app.get('/', blogPost);
+app.get('/api/v1/getblog', blogPost);
 app.get('/:id', blogPost);
 app.put('/:id', blogPost);
 app.delete('/:id', blogPost);

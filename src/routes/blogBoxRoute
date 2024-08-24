@@ -11,7 +11,7 @@ const app = require('express').Router();
 //     app.delete('/blogBox/:id', blogPost.deleteBlogPost);
 // }
 
-app.post('/', blogPost);
+app.post('/api/v1/blog', blogPost);
 app.get('/', blogPost);
 app.get('/:id', blogPost);
 app.put('/:id', blogPost);

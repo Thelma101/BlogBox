@@ -1,4 +1,6 @@
 const blogPost = require('../controllers/blogBloxController');
+const app = require('express').Router();
+
 
 
 // module.exports = (app) => {

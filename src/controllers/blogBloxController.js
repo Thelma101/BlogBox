@@ -1,7 +1,7 @@
 
 
 app.use(express.json());
-app.post('/', async (req,res) => {
+app.post('/api/v1', async (req,res) => {
     const { title, content, author, tag } = req.body;
     if ( !title || !content || !author || !tag ) {
         return res.status(404).json({ message: 'Please fill all the fields' })
@@ -22,7 +22,12 @@ app.post('/', async (req,res) => {
     }
 })
 
-app.get('/', (req, res) => { 
-    res.send('Hello World!')
+app.get('/api/v1/', async (req, res) => { 
+    try {
+        const blogs = await Blog.find();
+        res.json(blogs);
+    } catch(error) {
+        re
+    }
   }
 )

@@ -27,7 +27,7 @@ app.get('/api/v1/', async (req, res) => {
         const blogs = await Blog.find();
         res.json(blogs);
     } catch(error) {
-        re
+        res.status(500).json({ message: error.message, error });
     }
   }
 )

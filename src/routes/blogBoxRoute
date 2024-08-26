@@ -17,3 +17,4 @@ app.get('api/v1/:id', blogPost);
 app.put('api/v1/:id', blogPost);
 app.delete('api/v1/:id', blogPost);
 
+module.exports = app;

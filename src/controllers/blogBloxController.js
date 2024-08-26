@@ -1,6 +1,5 @@
-
-
-app.use(express.json());
+const express = require('express');
+const app = express.Router();
 app.post('/api/v1', async (req,res) => {
     const { title, content, author, tag } = req.body;
     if ( !title || !content || !author || !tag ) {
@@ -31,3 +30,5 @@ app.get('/api/v1/', async (req, res) => {
     }
   }
 )
+
+module.exports = app;

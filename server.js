@@ -3,12 +3,13 @@ const mongoose = require('mongoose');
 // const jwt = require('jsonwebtoken');
 // const bcrypt = require('bcryptjs');
 const app = express();
-
+app.use(express.json());
+const blogBoxRoute = require('./src/routes/blogBoxRoute');
 
 
 const port = process.env.port || 4000;
 
-
+app.use('/', blogBoxRoute);
 
 // Connect to MongoDB
 mongoose.connect('mongodb://localhost/BlogBox', { useNewUrlParser: true, useUnifiedTopology: true })

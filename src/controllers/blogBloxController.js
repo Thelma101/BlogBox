@@ -8,7 +8,7 @@ exports.createBlog = async (req,res) => {
     }
 
     try {
-        const newBlog = new Blog({
+        const newBlog = new blogSchema({
             title,
             content,
             author,
@@ -24,7 +24,7 @@ exports.createBlog = async (req,res) => {
 
 exports.getAllBlogs = async (req, res) => { 
     try {
-        const blogs = await Blog.find();
+        const blogs = await blogSchema.find();
         res.json(blogs);
     } catch(error) {
         res.status(500).json({ message: error.message, error });

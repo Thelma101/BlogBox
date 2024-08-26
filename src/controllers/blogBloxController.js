@@ -22,7 +22,7 @@ exports.createBlog = async (req,res) => {
     }
 }
 
-exports.getBlog = async (req, res) => { 
+exports.getAllBlogs = async (req, res) => { 
     try {
         const blogs = await Blog.find();
         res.json(blogs);

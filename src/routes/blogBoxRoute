@@ -2,15 +2,6 @@ const blogPost = require('../controllers/blogBloxController');
 const app = require('express').Router();
 
 
-
-// module.exports = (app) => {
-//     app.post('/blogBox', blogPost.createBlogPost);
-//     app.get('/blogBox', blogPost.getAllBlogPosts);
-//     app.get('/blogBox/:id', blogPost.getBlogPostById);
-//     app.put('/blogBox/:id', blogPost.updateBlogPost);
-//     app.delete('/blogBox/:id', blogPost.deleteBlogPost);
-// }
-
 app.post('/api/v1/', blogPost);
 app.get('/api/v1/', blogPost);
 app.get('api/v1/:id', blogPost);

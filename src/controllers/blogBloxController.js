@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express.Router();
+const blogSchema = require('./')
 app.post('/api/v1', async (req,res) => {
     const { title, content, author, tag } = req.body;
     if ( !title || !content || !author || !tag ) {

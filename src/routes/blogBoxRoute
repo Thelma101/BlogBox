@@ -1,8 +1,8 @@
-const blogPost = require('../controllers/blogBloxController');
+const blogBox = require('../controllers/blogBloxController');
 const app = require('express').Router();
 
 
-app.post('/api/v1/', blogPost);
+app.post('/api/v1/', blogBox.createBlog);
 app.get('/api/v1/', blogPost);
 app.get('api/v1/:id', blogPost);
 app.put('api/v1/:id', blogPost);

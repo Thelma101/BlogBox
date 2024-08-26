@@ -1,4 +1,3 @@
-
 const blogSchema = require('../models/blogBoxSchema');
 
 
@@ -23,7 +22,7 @@ exports.createBlog = async (req,res) => {
     }
 }
 
-app.get('/api/v1/', async (req, res) => { 
+exports.getBlog = async (req, res) => { 
     try {
         const blogs = await Blog.find();
         res.json(blogs);
@@ -31,6 +30,5 @@ app.get('/api/v1/', async (req, res) => {
         res.status(500).json({ message: error.message, error });
     }
   }
-)
 
 module.exports = app;

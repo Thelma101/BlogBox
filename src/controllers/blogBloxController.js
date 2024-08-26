@@ -21,3 +21,8 @@ app.post('/', async (req,res) => {
         res.status(500).json({ message: error.message, error});
     }
 })
+
+app.get('/', (req, res) => { 
+    res.send('Hello World!')
+  }
+)

@@ -30,5 +30,3 @@ exports.getAllBlogs = async (req, res) => {
         res.status(500).json({ message: error.message, error });
     }
   }
-
-module.exports = app;

@@ -1,7 +1,8 @@
-const express = require('express');
-const app = express.Router();
-const blogSchema = require('../models/blogBoxSchema')
-app.post('/api/v1', async (req,res) => {
+
+const blogSchema = require('../models/blogBoxSchema');
+
+
+exports.createBlog = async (req,res) => {
     const { title, content, author, tag } = req.body;
     if ( !title || !content || !author || !tag ) {
         return res.status(404).json({ message: 'Please fill all the fields' })
@@ -20,7 +21,7 @@ app.post('/api/v1', async (req,res) => {
     catch (error) {
         res.status(500).json({ message: error.message, error});
     }
-})
+}
 
 app.get('/api/v1/', async (req, res) => { 
     try {

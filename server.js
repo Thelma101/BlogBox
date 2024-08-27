@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 // const bcrypt = require('bcryptjs');
 const app = express();
 app.use(express.json());
-const blogBoxRoute = require('./src/routes/blogBoxRoute');
+const blogBoxRoute = require('./src/routes/blogRoute.js');
 
 
 const port = process.env.port || 4000;

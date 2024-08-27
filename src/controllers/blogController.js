@@ -1,4 +1,4 @@
-const blogSchema = require('../models/blogBoxSchema');
+const blogSchema = require('../models/blogSchema');
 
 
 exports.createBlog = async (req,res) => {

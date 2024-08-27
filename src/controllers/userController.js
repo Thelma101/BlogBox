@@ -40,11 +40,29 @@ exports.updateUser = async (req, res) => {
         const { id: _id } = req.params;
         const user = await userSchema.findByIdAndUpdate(_id, req.body, { new: true });
 
-        if (!user) return res.status(404).json({ message: 'User not found' });
-
-        res.json(user);
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+            
+    }
+    res.json(user);
     } catch {
         console.error(error);
         res.status(500).json({ message: error.message, error });
+    }
+}
+
+exports.findUserById = async (req, res) => {
+    try {
+        const { id: _id } = req.params;
+        const user = await userSchema.findByIdAndDelete(_id, req.body, { new: true });
+
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+
+        }
+    } catch {
+        res.status(404).json({
+            message: 'User not found'
+        })
     }
 }

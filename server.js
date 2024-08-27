@@ -11,6 +11,7 @@ const userRoute = require('./src/routes/userRoute.js');
 const port = process.env.port || 4000;
 
 app.use('/', blogRoute);
+app.use('/', userRoute);
 
 // Connect to MongoDB
 mongoose.connect('mongodb://localhost/BlogBox', { useNewUrlParser: true, useUnifiedTopology: true })

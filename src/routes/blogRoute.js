@@ -1,4 +1,4 @@
-const blogBox = require('../controllers/blogBloxController');
+const blogBox = require('../controllers/blogController');
 const app = require('express').Router();
 
 

@@ -2,6 +2,7 @@ const { findById } = require('../models/blogSchema');
 const userSchema = require('../models/userSchema');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+require('dotenv').config();
 
 exports.createUser = async (req, res) => {
     const { username, email, password } = req.body;
@@ -95,7 +96,8 @@ exports.login = async (req, res) => {
 
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) return res.status(401).json({ message: 'Invalid credentials' });
-
+        
+        console.log('JWT_SECRET:', process.env.JWT_SECRET);
         const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
         res.json({ message: 'Logged in successfully', token });
     } catch (error) {

@@ -26,5 +26,11 @@ exports.createUser = async (req, res) => {
 }
 
 exports.getAllUsers = async (req, res) => {
-    const userSchema = req.bcrypt.getSchema
+    try {
+        const users = await userSchema.find();
+        res.json(users);
+    } catch {
+        console.error(error);
+        res.status(500).json({ message: error.message, error });
+    }
 }

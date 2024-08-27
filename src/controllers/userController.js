@@ -44,6 +44,9 @@ exports.getUser = async (req, res) => {
         if (!user) {
             return res.status(404).json({ message: 'User not found' });
         }
+    } catch {
+        console.error(error);
+        res.status(500).json({ message: error.message, error });
     }
 }
 
@@ -94,5 +97,18 @@ exports.login = async (req, res) => {
 
         const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
         res.json({ message: 'Logged in successfully', token });
+    } catch {
+        console.error(error);
+        res.status(500).json({ message: error.message, error });
+    }
+}
+
+exports.logout = async (req, res) => {
+    try {
+        req.user = null;
+        res.status(204).json({ message: 'Logged out successfully' });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: error.message, error });
     }
 }

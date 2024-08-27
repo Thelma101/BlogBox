@@ -4,12 +4,13 @@ const mongoose = require('mongoose');
 // const bcrypt = require('bcryptjs');
 const app = express();
 app.use(express.json());
-const blogBoxRoute = require('./src/routes/blogRoute.js');
+const blogRoute = require('./src/routes/blogRoute.js');
+const userRoute = require('./src/routes/userRoute.js');
 
 
 const port = process.env.port || 4000;
 
-app.use('/', blogBoxRoute);
+app.use('/', blogRoute);
 
 // Connect to MongoDB
 mongoose.connect('mongodb://localhost/BlogBox', { useNewUrlParser: true, useUnifiedTopology: true })

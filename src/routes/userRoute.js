@@ -2,7 +2,7 @@ const user = require('../controllers/userController');
 const app = require('express').Router();
 
 
-    app.post('/api/v1/user', user.create);
+    app.post('/api/v1/user', user.createUser);
     app.get('/api/v1/user', user.getAllUsers);
     app.get('/api/v1/user', user.getUserById);
     app.put('/api/v1/user', user.updateUser);

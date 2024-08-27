@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 
 exports.createUser = async (req, res) => {
     const { username, email, password } = req.body;
-    if (!username ||!email ||!password) {
+    if (!username || !email || !password) {
         return res.status(400).json({ message: 'Please fill all the fields' });
     }
 
@@ -29,6 +29,20 @@ exports.getAllUsers = async (req, res) => {
     try {
         const users = await userSchema.find();
         res.json(users);
+    } catch {
+        console.error(error);
+        res.status(500).json({ message: error.message, error });
+    }
+}
+
+exports.updateUser = async (req, res) => {
+    try {
+        const { id: _id } = req.params;
+        const user = await userSchema.findByIdAndUpdate(_id, req.body, { new: true });
+
+        if (!user) return res.status(404).json({ message: 'User not found' });
+
+        res.json(user);
     } catch {
         console.error(error);
         res.status(500).json({ message: error.message, error });

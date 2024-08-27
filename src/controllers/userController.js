@@ -21,7 +21,10 @@ exports.createUser = async (req, res) => {
         const newUser = new userSchema({ username, email, password: hashedPassword });
         await newUser.save();
 
-        res.status(201).json({ message: 'User created successfully' });
+        const token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+        res.status(201).json({ message: 'User created successfully', token });
+   
+        // res.status(201).json({ message: 'User created successfully' });
     } catch (error) {
         console.error(error)
         res.status(500).json({ message: error.message, error });
@@ -41,16 +44,19 @@ exports.getAllUsers = async (req, res) => {
 exports.getUser = async (req, res) => {
     try {
         const { id: _id } = req.params;
-        const user = await userSchema.findById( _id, req.body, { new: true });
+        const user = await userSchema.findById(_id);
 
         if (!user) {
             return res.status(404).json({ message: 'User not found' });
         }
-    } catch {
+
+        res.json(user);
+    } catch (error) {
         console.error(error);
         res.status(500).json({ message: error.message, error });
     }
 }
+
 
 exports.updateUser = async (req, res) => {
     try {
@@ -71,18 +77,19 @@ exports.updateUser = async (req, res) => {
 exports.deleteUser = async (req, res) => {
     try {
         const { id: _id } = req.params;
-        const user = await userSchema.findByIdAndDelete(_id, req.body, { new: true });
+        const user = await userSchema.findByIdAndDelete(_id);
 
         if (!user) {
             return res.status(404).json({ message: 'User not found' });
-
         }
-    } catch {
-        res.status(404).json({
-            message: 'User not found'
-        })
+
+        res.status(200).json({ message: 'User deleted successfully' });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: error.message, error });
     }
 }
+
 
 exports.login = async (req, res) => {
     try {

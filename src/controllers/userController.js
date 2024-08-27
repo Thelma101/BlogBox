@@ -1,3 +1,4 @@
+const { findById } = require('../models/blogSchema');
 const userSchema = require('../models/userSchema');
 const bcrypt = require('bcrypt');
 
@@ -35,6 +36,17 @@ exports.getAllUsers = async (req, res) => {
     }
 }
 
+exports.getUser = async (req, res) => {
+    try {
+        const { id: _id } = req.params;
+        const user = await userSchema.findById( _id, req.body, { new: true });
+
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+    }
+}
+
 exports.updateUser = async (req, res) => {
     try {
         const { id: _id } = req.params;
@@ -51,7 +63,7 @@ exports.updateUser = async (req, res) => {
     }
 }
 
-exports.findUserById = async (req, res) => {
+exports.deleteUser = async (req, res) => {
     try {
         const { id: _id } = req.params;
         const user = await userSchema.findByIdAndDelete(_id, req.body, { new: true });

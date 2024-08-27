@@ -1,6 +1,7 @@
 const { findById } = require('../models/blogSchema');
 const userSchema = require('../models/userSchema');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 exports.createUser = async (req, res) => {
     const { username, email, password } = req.body;

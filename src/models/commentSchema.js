@@ -5,10 +5,6 @@ const commentSchema = new commentSchema({
         type: String,
         required: true
     },
-    createdAt: {
-        type: Date,
-        default: Date.now
-    },
     author: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
@@ -16,5 +12,13 @@ const commentSchema = new commentSchema({
     blog_id: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Blog'
+    },
+    createdAt: {
+        type: Date,
+        default: Date.now
+    },
+    updatedAt: {
+        type: Date,
+        default: Date.now
     }
 });

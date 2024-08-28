@@ -1,10 +1,13 @@
 const commentSchema = require('../models/commentSchema');
+const blogSchema = require('../models/blogSchema');
+
 exports.createComment = async (req, res) => {
     const { comment } = req.body;
     if (!comment) {
         return res.status(404).send({ message: 'Field cannot be empty' })
     }
-    const blogExist = await Blog.findById(blogId);
+    const blogId = req.params.blogId;
+    const blogExist = await blogSchema.findById(blogId);
     if (!blogExist) {
         return res.status(404).json({ message: 'Blog not found' });
     }
@@ -12,7 +15,7 @@ exports.createComment = async (req, res) => {
         const newComment = await commentSchema({
             comment,
             author: req.user._id,
-            blog_post: req.params.blogId
+            blog: blogId
         })
         const savedComment = await newComment.save();
         res.status(201).json(savedComment);

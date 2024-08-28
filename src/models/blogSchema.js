@@ -5,7 +5,7 @@ const blogSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    content: {
+    comment: {
         type: String,
         required: true
     },
@@ -15,6 +15,7 @@ const blogSchema = new mongoose.Schema({
     },
     tag: {
         type: String,
+        default: 'Misc'
     }
 });
 

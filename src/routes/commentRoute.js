@@ -1,4 +1,6 @@
 const commentRoute = require('../controllers/commentController');
 const app = require('express').Router();
 
-app.post = ('/', commentRoute.createComment);
+app.post = ('/api/v1/comment', commentRoute.createComment);
+
+module.exports = app;

@@ -4,6 +4,10 @@ exports.createComment = async (req, res) => {
     if (!comment) {
         return res.status(404).send({ message: 'Field cannot be empty' })
     }
+    const blogExist = await Blog.findById(blogId);
+    if (!blogExist) {
+        return res.status(404).json({ message: 'Blog not found' });
+    }
     try {
         const newComment = await commentSchema({
             comment,

@@ -1,4 +1,4 @@
-
+const commentSchema = require('../models/commentSchema');
 exports.createComment = async (req, res) => {
     const { comment } = req.body;
     if (!comment) {

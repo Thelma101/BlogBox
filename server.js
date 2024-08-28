@@ -13,6 +13,7 @@ const port = process.env.port || 4000;
 
 app.use('/', blogRoute);
 app.use('/', userRoute);
+app.use('/', commentRoute);
 
 // Connect to MongoDB
 mongoose.connect('mongodb://localhost/BlogBox', { useNewUrlParser: true, useUnifiedTopology: true })

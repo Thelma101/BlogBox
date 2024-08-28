@@ -1,16 +1,11 @@
 
 exports.createComment = async (req, res) => {
-    const { content, author, blog_id } = req.body;
-    if (!content ||!author ||!blog_id ) {
-        return res.status(404).json({ message: 'Please fill all the fields' })
+    const { content } = req.body;
+    if (!content) {
+        return res.status(404).send({ message: 'Field cannot be empty' })
     }
-
     try {
-        const newComment = new commentSchema({
-            content,
-            author,
-            blog_id
-        });
+        
         const savedComment = await newComment.save();
         res.status(201).json(savedComment);
     } catch (error) {

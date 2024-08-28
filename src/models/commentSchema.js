@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const commentSchema = new commentSchema({
+const commentSchema = new mongoose.Schema({
     content: {
         type: String,
         required: true
@@ -22,3 +22,5 @@ const commentSchema = new commentSchema({
         default: Date.now
     }
 });
+
+module.exports = mongoose.model('Comment', commentSchema);

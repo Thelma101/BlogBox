@@ -26,7 +26,7 @@ exports.createComment = async (req, res) => {
 
 exports.getAllComments = async (req, res) => {
     try {
-        const comments =  new Comment();
+        const comments =  await commentSchema.find();
         res.json(comments);
     } catch (error) {
         console.error(error);

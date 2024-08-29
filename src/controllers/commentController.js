@@ -1,5 +1,6 @@
-const commentSchema = require('../models/commentSchema');
+const Comment = require('../models/commentSchema');
 const Blog = require('../models/blogSchema');
+const User = require('../models/userSchema');
 
 // exports.createComment = async (req, res) => {
 //     const { comment } = req.body;
@@ -46,9 +47,9 @@ exports.createComment = async (req, res) => {
             return res.status(404).json({ message: 'Blog not found' });
         }
 
-        const newComment = new commentSchema({
+        const newComment = new Comment({
             comment,
-            author: req.user._id,
+            author: User._id,
             blog: blogId
         });
 

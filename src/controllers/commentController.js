@@ -29,6 +29,7 @@ exports.getAllComments = async (req, res) => {
         const comments =  new Comment();
         res.json(comments);
     } catch (error) {
-        res.status(500).json({ message: error.message, error });
+        console.error(error);
+        res.status(500).json({ message: error.message, error: error.stack });
     }
 }

@@ -34,6 +34,7 @@ const Blog = require('../models/blogSchema');
 exports.createComment = async (req, res) => {
     const { comment } = req.body;
     const blogId = req.params.blogId;
+    console.log(blogId);
 
     if (!comment) {
         return res.status(400).send({ message: 'Field cannot be empty' });

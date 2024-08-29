@@ -5,7 +5,7 @@ const blogSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    comment: {
+    content: {
         type: String,
 
     },
@@ -16,7 +16,11 @@ const blogSchema = new mongoose.Schema({
     tag: {
         type: String,
         default: 'Misc'
-    }
+    },
+    comments: [{ 
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'Comment' 
+    }],
 });
 
 const Blog = mongoose.model('Blog', blogSchema);

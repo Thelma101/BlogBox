@@ -1,5 +1,5 @@
 const commentSchema = require('../models/commentSchema');
-const blogSchema = require('../models/blogSchema');
+const Blog = require('../models/blogSchema');
 
 exports.createComment = async (req, res) => {
     const { comment } = req.body;

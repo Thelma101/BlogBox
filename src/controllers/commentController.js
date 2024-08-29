@@ -10,7 +10,7 @@ exports.createComment = async (req, res) => {
     }
 
     try {
-        const blogExist = await blogSchema.findById(blogId);
+        const blogExist = await Blog.findById(blogId);
         if (!blogExist) {
             return res.status(404).json({ message: 'Blog not found' });
         }

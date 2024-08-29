@@ -26,7 +26,7 @@ exports.createComment = async (req, res) => {
 
 exports.getAllComments = async (req, res) => {
     try {
-        const comments = await new commentSchema.find().populate('author', 'username').populate('blog_post', 'title');
+        const comments =  new Comment();
         res.json(comments);
     } catch (error) {
         res.status(500).json({ message: error.message, error });

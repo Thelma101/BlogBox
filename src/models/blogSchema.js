@@ -7,7 +7,7 @@ const blogSchema = new mongoose.Schema({
     },
     content: {
         type: String,
-
+        required: true
     },
     author: {
         type: String,
@@ -23,5 +23,4 @@ const blogSchema = new mongoose.Schema({
     }],
 });
 
-const Blog = mongoose.model('Blog', blogSchema);
-module.exports = Blog;
+module.exports  = mongoose.model('Blog', blogSchema);

@@ -34,7 +34,7 @@ const Blog = require('../models/blogSchema');
 exports.createComment = async (req, res) => {
     const { comment } = req.body;
     const blogId = req.params.blogId;
-    console.log(blogId);
+    console.log('Blog Id: ', blogId);
 
     if (!comment) {
         return res.status(400).send({ message: 'Field cannot be empty' });
@@ -46,7 +46,7 @@ exports.createComment = async (req, res) => {
             return res.status(404).json({ message: 'Blog not found' });
         }
 
-        const newComment = new Comment({
+        const newComment = new commentSchema({
             comment,
             author: req.user._id,
             blog: blogId
@@ -58,6 +58,7 @@ exports.createComment = async (req, res) => {
 
         res.status(201).json(savedComment);
     } catch (error) {
+        console.error('Error saving comment:', error.message, error.stack);
         res.status(500).json({ message: 'Internal Server Error', error: error.message });
     }
 };

@@ -24,3 +24,4 @@ mongoose.connect('mongodb://localhost/BlogBox', { useNewUrlParser: true, useUnif
 app.listen(port, () => {
     console.log(`Yaay! Server running on port ${port}`);
   });
+  

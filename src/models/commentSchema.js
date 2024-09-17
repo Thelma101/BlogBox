@@ -12,14 +12,6 @@ const commentSchema = new mongoose.Schema({
     blog: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Blog'
-    },
-    createdAt: {
-        type: Date,
-        default: Date.now
-    },
-    updatedAt: {
-        type: Date,
-        default: Date.now
     }
 },
 { timestamps: true });

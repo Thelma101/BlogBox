@@ -1,7 +1,5 @@
 const express = require('express');
 const mongoose = require('mongoose');
-// const jwt = require('jsonwebtoken');
-// const bcrypt = require('bcryptjs');
 const app = express();
 app.use(express.json());
 const blogRoute = require('./src/routes/blogRoute.js');

@@ -15,7 +15,7 @@ const blogSchema = new mongoose.Schema({
     },
     tag: {
         type: String,
-        default: 'Misc'
+        default: 'General'
     },
     comments: [{ 
         type: mongoose.Schema.Types.ObjectId, 

@@ -56,7 +56,6 @@ exports.createComment = async (req, res) => {
         const savedComment = await newComment.save();
         blogExist.comments.push(savedComment._id);
         await blogExist.save();
-
         res.status(201).json(savedComment);
     } catch (error) {
         console.error('Error saving comment:', error.message, error.stack);

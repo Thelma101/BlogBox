@@ -16,7 +16,7 @@ app.use('/', userRoute);
 app.use('/', commentRoute);
 
 // Connect to MongoDB
-mongoose.connect('mongodb://localhost/BlogBox', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb://localhost/BlogBox')
  .then(() => console.log('MongoDB Connected...Hurray!'))
  .catch(err => console.log(err));
 
